@@ -29,6 +29,12 @@ type Gym struct {
 var db *gorm.DB
 var err error
 
+func greet(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, gin.H{
+		"message": "welcome to gymdb api",
+	})
+}
+
 // getAllGyms responds with the list of all gyms as JSON.
 func getAllGyms(c *gin.Context) {
 	var allGyms []Gym
@@ -98,6 +104,7 @@ func main() {
 	db.AutoMigrate(&Gym{})
 
 	router := gin.Default()
+	router.GET("/", greet)
 	router.GET("/gyms", getAllGyms)
 	router.GET("/gyms/:id", getGymById)
 	router.POST("/gyms", addGym)
