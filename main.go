@@ -102,9 +102,5 @@ func main() {
 	router.GET("/gyms/:id", getGymById)
 	router.POST("/gyms", addGym)
 
-	if port != "" {
-		router.Run(fmt.Sprintf("localhost:%s", port))
-	} else {
-		router.Run("localhost:8080")
-	}
+	router.Run(fmt.Sprintf("localhost:%s", port))
 }
