@@ -11,5 +11,5 @@ func init() {
 }
 
 var AuthMiddleware = gin.BasicAuth(gin.Accounts{
-	"admin": initializers.AUTH_PASSWORD,
+	initializers.AUTH_USERNAME: initializers.AUTH_PASSWORD,
 })
