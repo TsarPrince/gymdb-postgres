@@ -1,4 +1,4 @@
-module example.com/postgres
+module gymdb
 
 go 1.19
 
