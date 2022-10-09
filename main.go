@@ -83,6 +83,7 @@ func main() {
 	// URI := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, user, password, dbname, dbport)
 
 	dburi := os.Getenv("DBURI")
+	port := os.Getenv("PORT")
 	URI := dburi
 
 	// Opening connection to database
@@ -100,5 +101,10 @@ func main() {
 	router.GET("/gyms", getAllGyms)
 	router.GET("/gyms/:id", getGymById)
 	router.POST("/gyms", addGym)
-	router.Run("localhost:8080")
+
+	if port != "" {
+		router.Run(fmt.Sprintf("localhost:%s", port))
+	} else {
+		router.Run("localhost:8080")
+	}
 }
