@@ -71,7 +71,8 @@ func main() {
 	// loading environment variables
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		// not log.Fatal for production
+		fmt.Println("Error loading .env file")
 	}
 
 	// host := os.Getenv("HOST")
