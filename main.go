@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"gymdb/config"
 	"gymdb/initializers"
-	"gymdb/routes"
-
 	"gymdb/migrate"
+	"gymdb/routes"
 
 	"github.com/gin-gonic/gin"
 )

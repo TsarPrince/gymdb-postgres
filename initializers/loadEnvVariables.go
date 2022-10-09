@@ -7,7 +7,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var DBURI, PORT string
+var DBURI, PORT, AUTH_PASSWORD string
 
 func LoadEnvVariables() {
 	// loading environment variables
@@ -26,4 +26,5 @@ func LoadEnvVariables() {
 
 	DBURI = os.Getenv("DBURI")
 	PORT = os.Getenv("PORT")
+	AUTH_PASSWORD = os.Getenv("AUTH_PASSWORD")
 }
