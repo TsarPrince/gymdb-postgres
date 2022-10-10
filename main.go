@@ -7,6 +7,7 @@ import (
 	"gymdb/migrate"
 	"gymdb/routes"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -23,6 +24,13 @@ func main() {
 
 	// initialize router
 	router := gin.Default()
+
+	// cors
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowHeaders:     []string{"Origin", "Authorization"},
+		AllowCredentials: true,
+	}))
 
 	// route endpoints
 	routes.Routes(router)
